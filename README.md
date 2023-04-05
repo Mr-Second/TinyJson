@@ -55,7 +55,7 @@ enum type : int{ Null, True, False, Number, String, Array, Object};
 一个值不可能同时为多种类型，所以可以使用`union`(C++17可使用std::variant代替union)来节省内存。由于`bool`类型足够简单，可以把`bool`的两个值`true`和`false`视为两个单独的类型来处理，所以无需在`union`中声明`bool`类型。C++的早期版本规定，在`union`中不能含有定义了构造函数或拷贝控制成员的类类型成员（如本例中的`string`和`vector`）。C++11标准取消了这一限制。不过，如果`union`的成员类型定义了自己的构造函数或拷贝控制成员，则该`union`的用法要比只含有内置类型的`union`更复杂。
 ```
 namespace json {
-    enum type : int{
+    enum class type : int{
         Null,
         True,
         False,
